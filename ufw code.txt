@@ -1,0 +1,184 @@
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo ufw status
+sudo: ufw: command not found
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo apt install ufw
+Installing:                     
+  ufw
+
+Installing dependencies:
+  iptables  libip6tc2
+
+Suggested packages:
+  firewalld  rsyslog
+
+Summary:
+  Upgrading: 0, Installing: 3, Removing: 0, Not Upgrading: 0
+  Download size: 550 kB
+  Space needed: 3,411 kB / 1,017 GB available
+
+Continue? [Y/n] y
+Get:1 http://kali.download/kali kali-last-snapshot/main amd64 libip6tc2 amd64 1.8.11-2 [20.3 kB]
+Get:2 http://kali.download/kali kali-last-snapshot/main amd64 iptables amd64 1.8.11-2 [361 kB]
+Get:3 http://mirrors.esto.network/kali kali-last-snapshot/main amd64 ufw all 0.36.2-9 [169 kB]
+Fetched 550 kB in 2s (320 kB/s)         
+Preconfiguring packages ...
+Selecting previously unselected package libip6tc2:amd64.
+(Reading database ... 201444 files and directories currently installed.)
+Preparing to unpack .../libip6tc2_1.8.11-2_amd64.deb ...
+Unpacking libip6tc2:amd64 (1.8.11-2) ...
+Selecting previously unselected package iptables.
+Preparing to unpack .../iptables_1.8.11-2_amd64.deb ...
+Unpacking iptables (1.8.11-2) ...
+Selecting previously unselected package ufw.
+Preparing to unpack .../archives/ufw_0.36.2-9_all.deb ...
+Unpacking ufw (0.36.2-9) ...
+Setting up libip6tc2:amd64 (1.8.11-2) ...
+Setting up iptables (1.8.11-2) ...
+update-alternatives: using /usr/sbin/iptables-legacy to provide /usr/sbin/iptables (iptables) in auto mode
+update-alternatives: using /usr/sbin/ip6tables-legacy to provide /usr/sbin/ip6tables (ip6tables) in auto mode
+update-alternatives: using /usr/sbin/iptables-nft to provide /usr/sbin/iptables (iptables) in auto mode
+update-alternatives: using /usr/sbin/ip6tables-nft to provide /usr/sbin/ip6tables (ip6tables) in auto mode
+update-alternatives: using /usr/sbin/arptables-nft to provide /usr/sbin/arptables (arptables) in auto mode
+update-alternatives: using /usr/sbin/ebtables-nft to provide /usr/sbin/ebtables (ebtables) in auto mode
+Setting up ufw (0.36.2-9) ...
+Creating config file /etc/ufw/before.rules with new version
+Creating config file /etc/ufw/before6.rules with new version
+Creating config file /etc/ufw/after.rules with new version
+Creating config file /etc/ufw/after6.rules with new version
+update-rc.d: We have no instructions for the ufw init script.
+update-rc.d: It looks like a non-network service, we enable it.
+Created symlink '/etc/systemd/system/multi-user.target.wants/ufw.service' → '/usr/lib/systemd/system/ufw.service'.
+Processing triggers for kali-menu (2025.3.2) ...
+Processing triggers for libc-bin (2.41-12) ...
+Processing triggers for man-db (2.13.1-1) ...
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo ufw status
+Status: inactive
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo ufw enable 
+Firewall is active and enabled on system startup
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo ufw status numbered
+Status: active
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo ufw deny in 23/tcp                                                                                                                                                                
+Rule added
+Rule added (v6)
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo ufw status verbose                                                                                                                                                                
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+23/tcp                     DENY IN     Anywhere                  
+23/tcp (v6)                DENY IN     Anywhere (v6)             
+
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# telnet 127.0.0.1 23                                                                                                                                                                    
+Command 'telnet' not found, did you mean:
+  command 'telnetd' from deb inetutils-telnetd
+  command 'ztelnet' from deb zssh
+Try: apt install <deb name>
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo apt install telnet
+Installing:                     
+  telnet
+                                                                                                                                                                                           
+Installing dependencies:
+  inetutils-telnet
+                                                                                                                                                                                           
+Summary:
+  Upgrading: 0, Installing: 2, Removing: 0, Not Upgrading: 0
+  Download size: 174 kB
+  Space needed: 339 kB / 1,017 GB available
+
+Continue? [Y/n] y
+Get:1 http://kali.download/kali kali-last-snapshot/main amd64 inetutils-telnet amd64 2:2.6-4 [130 kB]
+Get:2 http://http.kali.org/kali kali-last-snapshot/main amd64 telnet all 0.17+2.6-4 [43.4 kB]
+Fetched 174 kB in 2s (79.2 kB/s)                                         
+Selecting previously unselected package inetutils-telnet.
+(Reading database ... 201766 files and directories currently installed.)
+Preparing to unpack .../inetutils-telnet_2%3a2.6-4_amd64.deb ...
+Unpacking inetutils-telnet (2:2.6-4) ...
+Selecting previously unselected package telnet.
+Preparing to unpack .../telnet_0.17+2.6-4_all.deb ...
+Unpacking telnet (0.17+2.6-4) ...
+Setting up inetutils-telnet (2:2.6-4) ...
+update-alternatives: using /usr/bin/inetutils-telnet to provide /usr/bin/telnet (telnet) in auto mode
+Setting up telnet (0.17+2.6-4) ...
+Processing triggers for kali-menu (2025.3.2) ...
+Processing triggers for man-db (2.13.1-1) ...
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# telnet 127.0.0.1 23
+Trying 127.0.0.1...
+telnet: Unable to connect to remote host: Connection refused
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo ufw allow 22/tcp                                                                                                                                                                  
+Rule added
+Rule added (v6)
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo ufw status 
+Status: active
+
+To                         Action      From
+--                         ------      ----
+23/tcp                     DENY        Anywhere                  
+22/tcp                     ALLOW       Anywhere                  
+23/tcp (v6)                DENY        Anywhere (v6)             
+22/tcp (v6)                ALLOW       Anywhere (v6)             
+
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo ufw status numbered                                                                                                                                                               
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 23/tcp                     DENY IN     Anywhere                  
+[ 2] 22/tcp                     ALLOW IN    Anywhere                  
+[ 3] 23/tcp (v6)                DENY IN     Anywhere (v6)             
+[ 4] 22/tcp (v6)                ALLOW IN    Anywhere (v6)             
+
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo ufw delete 2 && 4                                                                                                                                                                
+Deleting:
+ allow 22/tcp
+Proceed with operation (y|n)? y
+Rule deleted
+4: command not found
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo ufw delete 2
+Deleting:
+ deny 23/tcp
+Proceed with operation (y|n)? y
+Rule deleted (v6)
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo ufw delete 4
+ERROR: Could not find rule '4'
+
+┌──(root㉿LAPTOP-9I7TMOEO)-[/home/kali]
+└─# sudo ufw status numbered                                                                                                                                                               
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 23/tcp                     DENY IN     Anywhere                  
+[ 2] 22/tcp (v6)                ALLOW IN    Anywhere (v6)   
